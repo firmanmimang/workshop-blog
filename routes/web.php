@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // select post dari slug dengan info category
+    // et-cum-aperiam-excepturi-minima-consectetur-quas-odit
+    // return Post::get();
+    return Post::with(['category'])->where('slug', 'et-cum-aperiam-excepturi-minima-consectetur-quas-odit')->first();
 });
